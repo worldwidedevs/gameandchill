@@ -14,11 +14,13 @@ class Battle_Royale(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
+  '''
   # Test for cog interaction
   @commands.command(pass_context=True)
   async def give_ehre(self, ctx):
-    self.bot.ehrenbank.add_ehre(ctx, ctx.author, 5)
-
+    await self.bot.cogs['Ehrenbank'].add_ehre(ctx)
+  '''
+  
   # Podium
   @commands.command(pass_context=True)
   async def brpodium(self, ctx):

@@ -9,8 +9,8 @@ class Ehrenbank(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
   
-  def add_ehre(self, ctx, user, amount):
-    ctx.send(f'{amount}Ehre has been added to {user}s Konto') # Ehre zu users Konto adden
+  async def add_ehre(self, ctx):
+    await ctx.send('Ehre has been added to your account')
   
   @commands.command(pass_context=True)
   async def claim(self, ctx):
