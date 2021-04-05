@@ -17,7 +17,7 @@ class Battle_Royale(commands.Cog):
   # Test for cog interaction
   @commands.command(pass_context=True)
   async def give_ehre(self, ctx):
-    self.bot.add_ehre(ctx, ctx.author, 5)
+    self.bot.ehrenbank.add_ehre(ctx, ctx.author, 5)
 
   # Podium
   @commands.command(pass_context=True)
