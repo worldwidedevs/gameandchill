@@ -18,6 +18,9 @@ class Ehrenbank(commands.Cog, name="Ehrenbank (eb.[command])"):
 
     self.add_ehre(ctx, ctx.author)
   
+  @commands.command(aliases=["ut","upgrade title","upgrade"], pass_context=True)
+  async def upgrade_title(self, ctx):
+    await ctx.send("")
 
 
 def setup(bot):

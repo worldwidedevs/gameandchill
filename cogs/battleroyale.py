@@ -48,8 +48,8 @@ class Battle_Royale(commands.Cog, name="Battle Royale (br.[command])"):
 
   # Create new Game
   @commands.command(pass_context=True)
-  async def new(self, ctx):
-    if ctx.prefix != "br.": return
+  async def newbr(self, ctx):
+    # if ctx.prefix != "br.": return
 
     self.game_running = False
     self.memberlist = []
@@ -57,9 +57,9 @@ class Battle_Royale(commands.Cog, name="Battle Royale (br.[command])"):
     await ctx.send("The game will start if there are at least 10 players.")
 
   # Join the Game
-  @commands.command(pass_context=True)
-  async def join(self, ctx):
-    if ctx.prefix != "br.": return
+  @commands.command(aliases=["join_battleroyale","join_battle royale"],pass_context=True)
+  async def join_br(self, ctx):
+    # if ctx.prefix != "br.": return
 
     if self.game_running == True:
       await ctx.send("The Game is already running and nobody can join anymore.")
@@ -82,7 +82,7 @@ class Battle_Royale(commands.Cog, name="Battle Royale (br.[command])"):
 
   # Start the Game
   @commands.command(pass_context=True)
-  async def start(self, ctx):
+  async def start_br(self, ctx):
     if ctx.prefix != "br.": return
 
     self.game_running = True
@@ -105,7 +105,6 @@ class Battle_Royale(commands.Cog, name="Battle Royale (br.[command])"):
   
   # All Events____________________________________________________________________________
   async def event_marriage(self, ctx):
-    # pick 2 random users
     partner1 = random.choice(self.memberlist)
     self.memberlist.remove(partner1)
     partner2 = random.choice(self.memberlist)

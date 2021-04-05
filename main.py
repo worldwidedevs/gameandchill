@@ -3,6 +3,7 @@ import os
 from discord.ext import commands
 from dotenv import load_dotenv
 import random
+# from cogs import *
 
 bot = commands.Bot(command_prefix=(".", "br.", "eb.", "ww.", "ws."))
 
@@ -16,6 +17,7 @@ async def on_ready():
 
   guild_count = 0
   
+  print("------")
   print("Logged in as")
   print(bot.user.name)
   print("")
@@ -48,6 +50,23 @@ async def reload(ctx, extension):
 for filename in os.listdir("./cogs"):
   if filename.endswith(".py"):
     bot.load_extension(f"cogs.{filename[:-3]}")
+    print(f"cogs.{filename[:-3]} was loaded successfully")
 
+'''
+@bot.command()
+async def new(ctx, game):
+  newgame = getattr(self, "new_" + game.lower())
+  await newgame(ctx)
+
+@bot.command()
+async def join(ctx, game):
+  joingame = getattr(self, "join_" + game.lower())
+  await joingame(ctx)
+
+@bot.command()
+async def start(ctx, game):
+  startgame = getattr(self, "start_" + game.lower())
+  await startgame(ctx)
+'''
 
 bot.run(DISCORD_TOKEN)
