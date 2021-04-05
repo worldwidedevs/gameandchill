@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 
-class Werewolve(commands.Cog):
+class Werewolve(commands.Cog, name="Werewolves (ww.[command])"):
 
   def __init__(self, bot):
     self.bot = bot
@@ -36,6 +36,8 @@ class Werewolve(commands.Cog):
   # Start_Game______________________________________________________________
   @commands.command(aliases=["sw", "pw", "start werewolve", "play werewolves"], pass_context=True)
   async def start_werewolve(self, ctx):
+    if ctx.prefix != "ww.": return
+
     global roles
 
     # playerlist erstellen

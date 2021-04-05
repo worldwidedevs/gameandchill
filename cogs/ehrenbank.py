@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands, tasks
 import random
 
-class Ehrenbank(commands.Cog):
+class Ehrenbank(commands.Cog, name="Ehrenbank (eb.[command])"):
 
   Kontos = []
 
@@ -10,11 +10,13 @@ class Ehrenbank(commands.Cog):
     self.bot = bot
   
   async def add_ehre(self, ctx):
-    await ctx.send('Ehre has been added to your account')
+    await ctx.send("Ehre has been added to your account")
   
   @commands.command(pass_context=True)
   async def claim(self, ctx):
-    self.add_ehre(ctx, ctx.author, 5)
+    if ctx.prefix != "eb.": return
+
+    self.add_ehre(ctx, ctx.author)
   
 
 
