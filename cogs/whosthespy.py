@@ -3,6 +3,11 @@ from discord.ext import commands, tasks
 import random
 import os
 import sys
+import typingimport discord
+from discord.ext import commands, tasks
+import random
+import os
+import sys
 import typing
 
 class Whos_the_Spy(commands.Cog, name="Who's the Spy (ws.[command])"):
