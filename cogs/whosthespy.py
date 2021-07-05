@@ -3,7 +3,8 @@ from discord.ext import commands, tasks
 import random
 import os
 import sys
-import typingimport discord
+import typing
+import discord
 from discord.ext import commands, tasks
 import random
 import os
