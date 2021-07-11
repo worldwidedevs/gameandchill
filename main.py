@@ -4,13 +4,16 @@ from discord.ext import commands
 import random
 # from cogs import *
 
-bot = commands.Bot(command_prefix=(".", "br.", "eb.", "ww.", "ws."))
+intents = discord.Intents.default()
+intents.members = True
+
+bot = commands.Bot(command_prefix=(".", "br.", "eb.", "ww.", "ws."), intents=intents)
 
 DISCORD_TOKEN = os.environ['DISCORD_TOKEN']
 
 @bot.event
 async def on_ready():
-  activities = ["Tinder with the boys", "Flirting with the Snek", "Searching for suitable bunnies", "\"Dating Sims\""]
+  activities = ["Tinder with the boys", "the Game of Thots", "\"Dating Sims\""]
   activity = random.choice(activities)
   await bot.change_presence(activity=discord.Game(activity))
 
