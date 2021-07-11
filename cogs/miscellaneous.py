@@ -175,7 +175,11 @@ class Miscellaneous(commands.Cog, name="Miscellaneous (misc.[command])"):
 
   @commands.command(aliases=["rr", "removerole", "deleterole"], pass_context=True)
   async def remove_role(self, ctx, rolename):
-    role = discord.utils.get(ctx.guild.roles, name=rolename)
+    try:
+      role = discord.utils.get(ctx.guild.roles, name=rolename)
+    except:
+      await ctx.send("Error with removing that role.")
+      return
     await ctx.author.remove_roles(role, reason=None)
     await self.bot_log_channel.send("{0} has been removed from {1}.".format(rolename, ctx.author))
 
